@@ -1921,6 +1921,34 @@ body {
     background: transparent;
 }
 
+
+.contact-form .field-error {
+    border-color: #ff5c5c !important;
+}
+
+.contact-form .field-error:focus {
+    border-color: #ff5c5c !important;
+    background: rgba(255, 92, 92, 0.03);
+}
+
+.contact-form .form-error {
+    display: block;
+
+    margin-top: 0.45rem;
+
+    color: #ff7777;
+
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+.contact-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
 /* =========================================
    FOOTER
 ========================================= */
@@ -2229,28 +2257,623 @@ body {
 
 }
 
-/* =========================
-   PRICING BLUR REVEAL
-========================== */
 
-.pricing-card.reveal {
-    opacity: 0;
-    filter: blur(6px);
+
+/* =========================================
+   ABOUT PAGE HERO
+========================================= */
+
+.about-page-hero {
+    min-height: 75vh;
+    padding: 150px 0 100px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(11, 13, 12, 0.98) 0%,
+            rgba(11, 13, 12, 0.82) 50%,
+            rgba(11, 13, 12, 0.45) 100%
+        ),
+        url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1800&q=85")
+        center / cover no-repeat;
+}
+
+.about-page-hero-content {
+    max-width: 850px;
+}
+
+.about-page-hero h1 {
+    max-width: 850px;
+
+    font-size: clamp(3.2rem, 7vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -4px;
+    font-weight: 900;
+
+    margin-bottom: 1.75rem;
+}
+
+.about-page-hero h1 span {
+    display: block;
+    color: var(--primary-color);
+}
+
+.about-page-hero p {
+    max-width: 650px;
+
+    color: var(--muted-text);
+
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   ABOUT STORY
+========================================= */
+
+.about-story-section {
+    padding: 7rem 0;
+
+    background: var(--dark-color);
+}
+
+.about-story-image {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 1.5rem;
+}
+
+.about-story-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(200, 255, 0, 0.08),
+            transparent 50%
+        );
+
+    pointer-events: none;
+}
+
+.about-story-image img {
+    display: block;
+
+    width: 100%;
+    height: 600px;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.about-story-image:hover img {
+    transform: scale(1.04);
+}
+
+.about-story-content {
+    max-width: 600px;
+}
+
+.about-story-content h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+    line-height: 1;
+    letter-spacing: -2px;
+    font-weight: 800;
+
+    margin-bottom: 1.75rem;
+}
+
+.about-story-content h2 span {
+    display: block;
+    color: var(--primary-color);
+}
+
+.about-story-content p {
+    color: var(--muted-text);
+
+    font-size: 1rem;
+    line-height: 1.8;
+
+    margin-bottom: 1rem;
+}
+
+
+/* =========================================
+   ABOUT PHILOSOPHY
+========================================= */
+
+.about-philosophy-section {
+    padding: 7rem 0;
+
+    background: var(--dark-secondary);
+}
+
+.philosophy-header {
+    max-width: 700px;
+
+    margin: 0 auto 4rem;
+}
+
+.philosophy-header h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+    line-height: 1;
+    letter-spacing: -2px;
+    font-weight: 800;
+
+    margin-bottom: 1.5rem;
+}
+
+.philosophy-header h2 span {
+    display: block;
+    color: var(--primary-color);
+}
+
+.philosophy-header p {
+    color: var(--muted-text);
+
+    margin: 0;
+}
+
+
+/* =========================================
+   PHILOSOPHY CARD
+========================================= */
+
+.philosophy-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 2.5rem 2rem;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid var(--border-color);
+    border-radius: 1.25rem;
+
+    overflow: hidden;
+
     transition:
-        opacity 0.5s ease-out,
-        filter 0.5s ease-out;
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
 }
 
-.pricing-card.reveal.show {
-    opacity: 1;
-    filter: blur(0);
+.philosophy-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: var(--primary-color);
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.35s ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .pricing-card.reveal {
-        opacity: 1;
-        filter: none;
-        transition: none;
+.philosophy-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(200, 255, 0, 0.4);
+
+    background: rgba(255, 255, 255, 0.045);
+}
+
+.philosophy-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* =========================================
+   PHILOSOPHY ICON
+========================================= */
+
+.philosophy-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 1.5rem;
+
+    color: var(--primary-color);
+
+    background: rgba(200, 255, 0, 0.08);
+
+    border-radius: 0.9rem;
+
+    font-size: 1.2rem;
+}
+
+.philosophy-number {
+    display: block;
+
+    color: rgba(255, 255, 255, 0.25);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 0.75rem;
+}
+
+.philosophy-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+
+    margin-bottom: 0.8rem;
+}
+
+.philosophy-card p {
+    color: var(--muted-text);
+
+    font-size: 0.9rem;
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   ABOUT PAGE CTA
+========================================= */
+
+.about-page-cta {
+    padding: 5rem 0;
+
+    background: var(--dark-color);
+}
+
+.about-page-cta-inner {
+    position: relative;
+
+    min-height: 450px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 5rem;
+
+    border-radius: 1.5rem;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 10, 9, 0.98) 0%,
+            rgba(8, 10, 9, 0.85) 55%,
+            rgba(8, 10, 9, 0.4) 100%
+        ),
+        url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1800&q=85")
+        center / cover no-repeat;
+}
+
+.about-page-cta-inner h2 {
+    max-width: 750px;
+
+    font-size: clamp(2.8rem, 6vw, 5rem);
+
+    line-height: 0.95;
+    letter-spacing: -3px;
+    font-weight: 900;
+
+    margin: 1rem 0 1.5rem;
+}
+
+.about-page-cta-inner h2 span {
+    display: block;
+    color: var(--primary-color);
+}
+
+.about-page-cta-inner p {
+    color: #d5d7d6;
+
+    font-size: 1rem;
+
+    margin-bottom: 2rem;
+}
+
+
+/* =========================================
+   ABOUT PAGE RESPONSIVE
+========================================= */
+
+@media (max-width: 991px) {
+
+    .about-page-hero {
+        min-height: 65vh;
+        padding: 140px 0 80px;
+    }
+
+    .about-story-image {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .about-story-image img {
+        height: 500px;
+    }
+
+    .about-story-content {
+        max-width: 700px;
+    }
+
+    .about-page-cta-inner {
+        padding: 4rem;
     }
 }
 
+
+@media (max-width: 576px) {
+
+    .about-page-hero {
+        min-height: 70vh;
+        padding: 130px 0 70px;
+    }
+
+    .about-page-hero h1 {
+        font-size: 3.2rem;
+        letter-spacing: -2px;
+    }
+
+    .about-page-hero p {
+        font-size: 1rem;
+    }
+
+    .about-story-section {
+        padding: 5rem 0;
+    }
+
+    .about-story-image img {
+        height: 400px;
+    }
+
+    .about-story-content h2 {
+        letter-spacing: -1px;
+    }
+
+    .about-philosophy-section {
+        padding: 5rem 0;
+    }
+
+    .philosophy-header {
+        margin-bottom: 3rem;
+    }
+
+    .philosophy-header h2 {
+        letter-spacing: -1px;
+    }
+
+    .about-page-cta {
+        padding: 3rem 0 1.5rem;
+    }
+
+    .about-page-cta-inner {
+        min-height: 500px;
+
+        padding: 3rem 1.5rem;
+
+        justify-content: flex-end;
+
+        background:
+            linear-gradient(
+                0deg,
+                rgba(8, 10, 9, 0.98) 10%,
+                rgba(8, 10, 9, 0.75) 65%,
+                rgba(8, 10, 9, 0.35) 100%
+            ),
+            url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1000&q=85")
+            center / cover no-repeat;
+    }
+
+    .about-page-cta-inner h2 {
+        letter-spacing: -1px;
+    }
+
+}
+
+/* =========================================
+   WHY NOVAFIT SECTION
+========================================= */
+
+.why-novafit-section {
+    padding: 7rem 0;
+    background: var(--dark-secondary);
+}
+
+
+/* =========================================
+   WHY NOVAFIT HEADER
+========================================= */
+
+.why-novafit-header {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.why-novafit-header h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -2px;
+    font-weight: 800;
+
+    margin-bottom: 1.5rem;
+}
+
+.why-novafit-header h2 span {
+    display: block;
+    color: var(--primary-color);
+}
+
+.why-novafit-header p {
+    max-width: 600px;
+    margin: 0 auto;
+
+    color: var(--muted-text);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   WHY CARD
+========================================= */
+
+.why-card {
+    height: 100%;
+
+    padding: 2.5rem 2rem;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid var(--border-color);
+    border-radius: 1.25rem;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(200, 255, 0, 0.4);
+
+    background: rgba(255, 255, 255, 0.045);
+}
+
+
+/* =========================================
+   WHY ICON
+========================================= */
+
+.why-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 1.5rem;
+
+    color: var(--primary-color);
+
+    background: rgba(200, 255, 0, 0.08);
+
+    border-radius: 0.9rem;
+
+    font-size: 1.2rem;
+}
+
+
+/* =========================================
+   WHY CARD CONTENT
+========================================= */
+
+.why-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    margin-bottom: 1rem;
+}
+
+.why-card p {
+    color: var(--muted-text);
+
+    font-size: 0.95rem;
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   WHY NOVAFIT RESPONSIVE
+========================================= */
+
+@media (max-width: 576px) {
+
+    .why-novafit-section {
+        padding: 5rem 0;
+    }
+
+    .why-novafit-header {
+        margin-bottom: 3rem;
+    }
+
+    .why-novafit-header h2 {
+        letter-spacing: -1px;
+    }
+
+    .why-card {
+        padding: 2rem 1.5rem;
+    }
+
+}
+
+/* =========================================
+   ABOUT CTA → FOOTER SPACING
+========================================= */
+
+.about-page-cta {
+    padding-bottom: 2rem;
+}
+
+/* TEMPORARY TEST */
+.why-novafit-section .why-card {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+}
+
+/* =========================================
+   NOVAFIT FORM VALIDATION
+========================================= */
+
+.contact-form .field-error {
+    border-color: #ff5c5c !important;
+    box-shadow: 0 0 0 1px rgba(255, 92, 92, 0.15);
+}
+
+.contact-form .field-error:focus {
+    border-color: #ff5c5c !important;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 92, 92, 0.08);
+}
+
+.contact-form .form-error {
+    display: block;
+    margin-top: 0.45rem;
+
+    color: #ff7777;
+    font-size: 0.75rem;
+    line-height: 1.4;
+}

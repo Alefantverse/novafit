@@ -6,102 +6,193 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("NovaFit website loaded successfully.");
 
-    // Contact form
-const contactForm = document.querySelector(".contact-form");
 
-if (contactForm) {
-    contactForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
+    // =========================================
+    // SCROLL REVEAL ANIMATION
+    // =========================================
 
-        const submitButton = contactForm.querySelector(".contact-submit");
-        const originalButtonContent = submitButton.innerHTML;
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
-        submitButton.innerHTML = `
-            Sending...
-            <i class="fa-solid fa-spinner fa-spin"></i>
-        `;
+    if (revealElements.length) {
 
-        submitButton.disabled = true;
+        const revealObserver =
+            new IntersectionObserver(
+                (entries) => {
 
-        try {
-            const response = await fetch(contactForm.action, {
-                method: "POST",
-                body: new FormData(contactForm),
-                headers: {
-                    Accept: "application/json"
+                    entries.forEach((entry) => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
                 }
-            });
+            );
 
-            if (response.ok) {
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
+        });
+    }
+
+
+    // =========================================
+    // CONTACT FORM
+    // =========================================
+
+    const contactForm =
+        document.querySelector(".contact-form");
+
+    if (contactForm) {
+
+        contactForm.addEventListener(
+            "submit",
+            async (event) => {
+
+                /*
+                 * Let the browser perform its normal
+                 * required-field validation first.
+                 *
+                 * If the form is invalid, the submit
+                 * event will not continue.
+                 */
+
+                if (!contactForm.checkValidity()) {
+                    return;
+                }
+
+                event.preventDefault();
+
+
+                const submitButton =
+                    contactForm.querySelector(
+                        ".contact-submit"
+                    );
+
+                const originalButtonContent =
+                    submitButton.innerHTML;
+
+
+                // -----------------------------------------
+                // SENDING
+                // -----------------------------------------
+
+                submitButton.disabled = true;
+
                 submitButton.innerHTML = `
-                    Message Sent
-                    <i class="fa-solid fa-check"></i>
+                    Sending...
+                    <i class="fa-solid fa-spinner fa-spin"></i>
                 `;
 
-                contactForm.reset();
 
-                setTimeout(() => {
-                    submitButton.innerHTML = originalButtonContent;
+                try {
+
+                    const response = await fetch(
+                        contactForm.action,
+                        {
+                            method: "POST",
+                            body: new FormData(contactForm),
+                            headers: {
+                                Accept: "application/json"
+                            }
+                        }
+                    );
+
+
+                    if (!response.ok) {
+                        throw new Error(
+                            "Form submission failed."
+                        );
+                    }
+
+
+                    // -----------------------------------------
+                    // SUCCESS
+                    // -----------------------------------------
+
+                    submitButton.innerHTML = `
+                        Message Sent
+                        <i class="fa-solid fa-check"></i>
+                    `;
+
+                    contactForm.reset();
+
+
+                    setTimeout(() => {
+
+                        submitButton.innerHTML =
+                            originalButtonContent;
+
+                        submitButton.disabled = false;
+
+                    }, 3000);
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Form submission error:",
+                        error
+                    );
+
+
+                    submitButton.innerHTML = `
+                        Try Again
+                        <i class="fa-solid fa-rotate-right"></i>
+                    `;
+
                     submitButton.disabled = false;
-                }, 2500);
+                }
 
-            } else {
-                throw new Error("Form submission failed.");
             }
+        );
+    }
 
-        } catch (error) {
 
-            submitButton.innerHTML = `
-                Try Again
-                <i class="fa-solid fa-rotate-right"></i>
-            `;
+    // =========================================
+    // CLOSE MOBILE NAVIGATION
+    // =========================================
 
-            submitButton.disabled = false;
+    const navMenu =
+        document.querySelector("#mainNav");
 
-            console.error("Form submission error:", error);
-        }
-    });
-}
+    const navLinks =
+        document.querySelectorAll(
+            "#mainNav .nav-link, #mainNav .btn"
+        );
 
-    // Close mobile navigation after clicking a link
-    const navMenu = document.querySelector("#mainNav");
-    const navLinks = document.querySelectorAll("#mainNav .nav-link, #mainNav .btn");
 
     if (navMenu && navLinks.length) {
+
         navLinks.forEach((link) => {
+
             link.addEventListener("click", () => {
+
                 if (navMenu.classList.contains("show")) {
-                    const collapse = bootstrap.Collapse.getInstance(navMenu);
+
+                    const collapse =
+                        bootstrap.Collapse.getInstance(
+                            navMenu
+                        );
+
                     if (collapse) {
                         collapse.hide();
                     }
                 }
+
             });
+
         });
+
     }
 
-});
-
-// =========================
-// SCROLL REVEAL ANIMATION
-// =========================
-
-const revealElements = document.querySelectorAll(".reveal");
-
-const revealObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    },
-    {
-        threshold: 0.15
-    }
-);
-
-revealElements.forEach((element) => {
-    revealObserver.observe(element);
 });
