@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const revealObserver =
             new IntersectionObserver(
-                (entries) => {
+                (entries, observer) => {
 
                     entries.forEach((entry) => {
 
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             entry.target.classList.add("show");
 
-                            revealObserver.unobserve(
+                            observer.unobserve(
                                 entry.target
                             );
                         }
@@ -46,6 +46,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // =========================================
+    // BACK TO TOP BUTTON
+    // =========================================
+
+    const backToTop =
+        document.querySelector(".back-to-top");
+
+    if (backToTop) {
+
+        const toggleBackToTop = () => {
+
+            if (window.scrollY > 500) {
+
+                backToTop.classList.add("show");
+
+            } else {
+
+                backToTop.classList.remove("show");
+
+            }
+        };
+
+
+        window.addEventListener(
+            "scroll",
+            toggleBackToTop,
+            { passive: true }
+        );
+
+
+        backToTop.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        // Check initial position
+        toggleBackToTop();
+    }
+
+
+    // =========================================
     // CONTACT FORM
     // =========================================
 
@@ -54,32 +102,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (contactForm) {
 
+        const submitButton =
+            contactForm.querySelector(
+                ".contact-submit"
+            );
+
+        const formError =
+            contactForm.querySelector(
+                ".form-error"
+            );
+
+        // Store the real original button content once
+        const originalButtonContent =
+            submitButton
+                ? submitButton.innerHTML
+                : "";
+
+        let failureTimer = null;
+        let successTimer = null;
+
+
         contactForm.addEventListener(
             "submit",
             async (event) => {
 
-                /*
-                 * Let the browser perform its normal
-                 * required-field validation first.
-                 *
-                 * If the form is invalid, the submit
-                 * event will not continue.
-                 */
+                // -----------------------------------------
+                // NATIVE BROWSER VALIDATION
+                // -----------------------------------------
 
                 if (!contactForm.checkValidity()) {
+
+                    event.preventDefault();
+
+                    contactForm.reportValidity();
+
                     return;
                 }
+
 
                 event.preventDefault();
 
 
-                const submitButton =
-                    contactForm.querySelector(
-                        ".contact-submit"
-                    );
+                if (!submitButton) {
+                    return;
+                }
 
-                const originalButtonContent =
-                    submitButton.innerHTML;
+
+                // -----------------------------------------
+                // CANCEL OLD TIMERS
+                // -----------------------------------------
+
+                if (failureTimer) {
+
+                    clearTimeout(failureTimer);
+
+                    failureTimer = null;
+                }
+
+                if (successTimer) {
+
+                    clearTimeout(successTimer);
+
+                    successTimer = null;
+                }
+
+
+                // -----------------------------------------
+                // CLEAR PREVIOUS ERROR
+                // -----------------------------------------
+
+                if (formError) {
+                    formError.textContent = "";
+                }
 
 
                 // -----------------------------------------
@@ -96,19 +190,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 try {
 
-                    const response = await fetch(
-                        contactForm.action,
-                        {
-                            method: "POST",
-                            body: new FormData(contactForm),
-                            headers: {
-                                Accept: "application/json"
+                    const response =
+                        await fetch(
+                            contactForm.action,
+                            {
+                                method: "POST",
+                                body: new FormData(contactForm),
+                                headers: {
+                                    Accept: "application/json"
+                                }
                             }
-                        }
-                    );
+                        );
 
+
+                    // -----------------------------------------
+                    // RESPONSE FAILED
+                    // -----------------------------------------
 
                     if (!response.ok) {
+
                         throw new Error(
                             "Form submission failed."
                         );
@@ -119,20 +219,34 @@ document.addEventListener("DOMContentLoaded", () => {
                     // SUCCESS
                     // -----------------------------------------
 
+                    if (formError) {
+                        formError.textContent = "";
+                    }
+
+
                     submitButton.innerHTML = `
                         Message Sent
                         <i class="fa-solid fa-check"></i>
                     `;
 
+
                     contactForm.reset();
 
+                    submitButton.disabled = true;
 
-                    setTimeout(() => {
+
+                    // -----------------------------------------
+                    // RESET AFTER SUCCESS
+                    // -----------------------------------------
+
+                    successTimer = setTimeout(() => {
 
                         submitButton.innerHTML =
                             originalButtonContent;
 
                         submitButton.disabled = false;
+
+                        successTimer = null;
 
                     }, 3000);
 
@@ -145,12 +259,40 @@ document.addEventListener("DOMContentLoaded", () => {
                     );
 
 
+                    // -----------------------------------------
+                    // FORM SUBMISSION FAILED
+                    // -----------------------------------------
+
+                    if (formError) {
+
+                        formError.textContent =
+                            "Form submission failed. Please try again.";
+                    }
+
+
                     submitButton.innerHTML = `
-                        Try Again
-                        <i class="fa-solid fa-rotate-right"></i>
+                        Form Submission Failed
+                        <i class="fa-solid fa-circle-exclamation"></i>
                     `;
 
                     submitButton.disabled = false;
+
+
+                    // -----------------------------------------
+                    // SHOW TRY AGAIN
+                    // -----------------------------------------
+
+                    failureTimer = setTimeout(() => {
+
+                        submitButton.innerHTML = `
+                            Try Again
+                            <i class="fa-solid fa-rotate-right"></i>
+                        `;
+
+                        failureTimer = null;
+
+                    }, 2000);
+
                 }
 
             }
@@ -175,24 +317,163 @@ document.addEventListener("DOMContentLoaded", () => {
 
         navLinks.forEach((link) => {
 
-            link.addEventListener("click", () => {
+            link.addEventListener(
+                "click",
+                () => {
 
-                if (navMenu.classList.contains("show")) {
+                    if (
+                        navMenu.classList.contains("show") &&
+                        typeof bootstrap !== "undefined"
+                    ) {
 
-                    const collapse =
-                        bootstrap.Collapse.getInstance(
-                            navMenu
-                        );
+                        const collapse =
+                            bootstrap.Collapse.getInstance(
+                                navMenu
+                            );
 
-                    if (collapse) {
-                        collapse.hide();
+
+                        if (collapse) {
+
+                            collapse.hide();
+
+                        } else {
+
+                            const newCollapse =
+                                new bootstrap.Collapse(
+                                    navMenu,
+                                    {
+                                        toggle: false
+                                    }
+                                );
+
+                            newCollapse.hide();
+                        }
                     }
-                }
 
-            });
+                }
+            );
 
         });
 
     }
 
+
+    // =========================================
+    // ACTIVE NAVIGATION LINK
+    // =========================================
+
+    const sections =
+        document.querySelectorAll(
+            "section[id]"
+        );
+
+    const navigationLinks =
+        document.querySelectorAll(
+            ".navbar .nav-link"
+        );
+
+
+    if (
+        sections.length &&
+        navigationLinks.length
+    ) {
+
+        const updateActiveNav =
+    () => {
+
+        const scrollPosition =
+            window.scrollY + 150;
+
+
+        // -----------------------------------------
+        // HOME ACTIVE AT TOP OF PAGE
+        // -----------------------------------------
+
+        if (window.scrollY < 100) {
+
+            navigationLinks.forEach(
+                (link) => {
+                    link.classList.remove("active");
+                }
+            );
+
+
+            const homeLink =
+                document.querySelector(
+                    '.navbar .nav-link[href="#top"]'
+                );
+
+
+            if (homeLink) {
+                homeLink.classList.add("active");
+            }
+
+            return;
+        }
+
+
+        sections.forEach((section) => {
+
+                    const sectionTop =
+                        section.offsetTop;
+
+                    const sectionHeight =
+                        section.offsetHeight;
+
+                    const sectionId =
+                        section.getAttribute("id");
+
+
+                    if (
+                        scrollPosition >= sectionTop &&
+                        scrollPosition <
+                            sectionTop + sectionHeight
+                    ) {
+
+                        navigationLinks.forEach(
+                            (link) => {
+
+                                link.classList.remove(
+                                    "active"
+                                );
+
+
+                                const href =
+                                    link.getAttribute(
+                                        "href"
+                                    );
+
+
+                                if (
+                                    href ===
+                                    `#${sectionId}`
+                                ) {
+
+                                    link.classList.add(
+                                        "active"
+                                    );
+                                }
+
+                            }
+                        );
+
+                    }
+
+                });
+
+            };
+
+
+        window.addEventListener(
+            "scroll",
+            updateActiveNav,
+            { passive: true }
+        );
+
+
+        updateActiveNav();
+    }
+
+
+    
 });

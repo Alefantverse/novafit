@@ -77,6 +77,14 @@ body {
     color: var(--primary-color);
 }
 
+/* =========================================
+   ACTIVE NAVIGATION LINK
+========================================= */
+
+.navbar .nav-link.active {
+    color: var(--primary-color);
+}
+
 
 /* =========================================
    BUTTONS
@@ -140,18 +148,15 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-
     color: var(--primary-color);
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 2px;
-
     margin-bottom: 1.5rem;
 }
 
 .hero-section h1 {
     max-width: 850px;
-
     font-size: clamp(3rem, 6vw, 5.5rem);
     line-height: 0.95;
     letter-spacing: -4px;
@@ -166,7 +171,6 @@ body {
 .hero-description {
     max-width: 600px;
     margin: 1.5rem 0;
-
     color: var(--muted-text);
     font-size: 1.15rem;
 }
@@ -190,7 +194,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 2.5rem;
-
     margin-top: 2.5rem;
 }
 
@@ -230,83 +233,6 @@ body {
 
 
 /* =========================================
-   RESPONSIVE DESIGN
-========================================= */
-
-@media (max-width: 991px) {
-
-    .navbar-collapse {
-        padding-top: 1rem;
-    }
-
-    .nav-link {
-        padding: 0.7rem 0;
-    }
-
-    .hero-section {
-        background:
-            linear-gradient(
-                90deg,
-                rgba(11, 13, 12, 0.95),
-                rgba(11, 13, 12, 0.8)
-            ),
-            url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=80")
-            center / cover no-repeat;
-    }
-}
-
-
-@media (max-width: 576px) {
-
-    .navbar {
-        padding: 1rem 0;
-    }
-
-    .hero-section h1 {
-        font-size: 3.2rem;
-        letter-spacing: -2px;
-    }
-
-    .hero-description {
-        font-size: 1rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .hero-buttons .btn {
-        width: 100%;
-    }
-
-    .hero-stats {
-        gap: 1.5rem;
-        margin-top: 3rem;
-    }
-
-    .stat strong {
-        font-size: 1.6rem;
-    }
-
-    .services-section {
-    padding: 5rem 0;
-}
-
-.services-header {
-    margin-bottom: 3rem;
-}
-
-.services-header h2 {
-    letter-spacing: -1px;
-}
-
-.service-card {
-    padding: 1.5rem;
-}
-}
-
-/* =========================================
    SERVICES SECTION
 ========================================= */
 
@@ -327,12 +253,10 @@ body {
 
 .section-eyebrow {
     display: inline-block;
-
     color: var(--primary-color);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 2px;
-
     margin-bottom: 1rem;
 }
 
@@ -341,7 +265,6 @@ body {
     line-height: 1;
     letter-spacing: -2px;
     font-weight: 800;
-
     margin-bottom: 1.5rem;
 }
 
@@ -351,7 +274,6 @@ body {
 
 .services-header p {
     max-width: 600px;
-
     color: var(--muted-text);
     font-size: 1.05rem;
 }
@@ -363,14 +285,11 @@ body {
 
 .service-card {
     position: relative;
-
     height: 100%;
     padding: 2rem;
-
     background: rgba(255, 255, 255, 0.025);
     border: 1px solid var(--border-color);
     border-radius: 1.25rem;
-
     overflow: hidden;
 
     transition:
@@ -381,27 +300,20 @@ body {
 
 .service-card::before {
     content: "";
-
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 3px;
-
     background: var(--primary-color);
-
     transform: scaleX(0);
     transform-origin: left;
-
     transition: transform 0.35s ease;
 }
 
 .service-card:hover {
     transform: translateY(-8px);
-
     border-color: rgba(200, 255, 0, 0.4);
-
     background: rgba(255, 255, 255, 0.045);
 }
 
@@ -416,12 +328,9 @@ body {
 
 .service-number {
     color: rgba(255, 255, 255, 0.25);
-
     font-size: 0.8rem;
     font-weight: 700;
-
     letter-spacing: 1px;
-
     margin-bottom: 2rem;
 }
 
@@ -433,19 +342,13 @@ body {
 .service-icon {
     width: 3.5rem;
     height: 3.5rem;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     margin-bottom: 1.5rem;
-
     color: var(--primary-color);
-
     background: rgba(200, 255, 0, 0.08);
-
     border-radius: 0.9rem;
-
     font-size: 1.25rem;
 }
 
@@ -457,15 +360,12 @@ body {
 .service-card h3 {
     font-size: 1.25rem;
     font-weight: 700;
-
     margin-bottom: 1rem;
 }
 
 .service-card p {
     color: var(--muted-text);
-
     font-size: 0.95rem;
-
     margin-bottom: 2rem;
 }
 
@@ -478,12 +378,9 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-
     color: #ffffff;
-
     font-size: 0.85rem;
     font-weight: 700;
-
     text-decoration: none;
 
     transition:
@@ -495,6 +392,7 @@ body {
     color: var(--primary-color);
     gap: 0.8rem;
 }
+
 
 /* =========================================
    ABOUT SECTION
@@ -517,12 +415,9 @@ body {
 
 .about-image {
     display: block;
-
     width: 100%;
     height: 620px;
-
     object-fit: cover;
-
     border-radius: 1.5rem;
 }
 
@@ -533,7 +428,6 @@ body {
 
 .experience-card {
     position: absolute;
-
     right: -25px;
     bottom: 35px;
 
@@ -547,7 +441,6 @@ body {
     color: #080a09;
 
     border-radius: 1rem;
-
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
@@ -577,7 +470,6 @@ body {
     line-height: 1;
     letter-spacing: -2px;
     font-weight: 800;
-
     margin-bottom: 1.75rem;
 }
 
@@ -610,24 +502,19 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-
     margin-bottom: 1.5rem;
 }
 
 .benefit-icon {
     flex-shrink: 0;
-
     color: var(--primary-color);
-
     font-size: 1.2rem;
-
     margin-top: 0.15rem;
 }
 
 .benefit-item h3 {
     font-size: 1rem;
     font-weight: 700;
-
     margin-bottom: 0.25rem;
 }
 
@@ -636,236 +523,6 @@ body {
     font-size: 0.9rem;
 }
 
-
-@media (max-width: 991px) {
-
-    /* ABOUT RESPONSIVE */
-    .about-image-wrapper {
-        max-width: 700px;
-        margin: 0 auto;
-    }
-
-    .about-content {
-        max-width: 700px;
-    }
-
-    .experience-card {
-        right: 20px;
-    }
-
-    /* PROGRAMS RESPONSIVE */
-    .programs-header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.programs-header > p {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-}
-
-
-@media (max-width: 576px) {
-    /* ABOUT RESPONSIVE */
-    .about-section {
-        padding: 5rem 0;
-    }
-
-    .about-image {
-        height: 450px;
-    }
-
-    .experience-card {
-        right: 15px;
-        bottom: 20px;
-
-        padding: 1rem 1.2rem;
-    }
-
-    .experience-card strong {
-        font-size: 2rem;
-    }
-
-    .about-content h2 {
-        letter-spacing: -1px;
-    }
-
-    .about-intro {
-        font-size: 1rem !important;
-    }
-
-    /* PROGRAMS RESPONSIVE */
-    .programs-section {
-    padding: 5rem 0;
-}
-
-.programs-header {
-    margin-bottom: 3rem;
-    align-items: center;
-    text-align: center;
-}
-
-.programs-header h2 {
-    letter-spacing: -1px;
-}
-
-.program-image {
-    height: 240px;
-}
-
-.program-content {
-    padding: 1.5rem;
-}
-
-    /*TESTINONIAL RESPONSIVE*/
-.results-section {
-    padding: 5rem 0;
-}
-
-.results-header {
-    margin-bottom: 3rem;
-}
-
-.results-header h2 {
-    letter-spacing: -1px;
-}
-
-.results-stats {
-    margin-bottom: 3.5rem;
-}
-
-.result-stat {
-    padding: 1.5rem 0.5rem;
-}
-
-.testimonial-card {
-    padding: 1.5rem;
-}
-
-/* PRICING RESPONSIVE */
-
-.pricing-section {
-    padding: 5rem 0;
-}
-
-.pricing-header {
-    margin-bottom: 3rem;
-}
-
-.pricing-header h2 {
-    letter-spacing: -1px;
-}
-
-.pricing-card {
-    min-height: auto;
-    padding: 2rem 1.5rem;
-}
-
-.pricing-price {
-    margin: 2rem 0;
-}
-
-.pricing-price strong {
-    font-size: 3rem;
-}
-
-.popular-pricing {
-    top: 1rem;
-    right: 1rem;
-}
-
-/* FINAL CTA RESPONSIVE */
-
-.final-cta-section {
-    padding: 3rem 0;
-}
-
-.final-cta {
-    min-height: 550px;
-
-    padding: 3rem 1.5rem;
-
-    align-items: flex-end;
-
-    background:
-        linear-gradient(
-            0deg,
-            rgba(8, 10, 9, 0.98) 10%,
-            rgba(8, 10, 9, 0.75) 65%,
-            rgba(8, 10, 9, 0.35) 100%
-        ),
-        url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=85")
-        center / cover no-repeat;
-}
-
-.final-cta h2 {
-    letter-spacing: -1px;
-}
-
-.final-cta p {
-    font-size: 0.95rem;
-}
-
-.final-cta-actions {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
-}
-
-/* CONTACT RESPONSIVE */
-
-.contact-section {
-    padding: 5rem 0;
-}
-
-.contact-content {
-    max-width: 100%;
-}
-
-.contact-content h2 {
-    letter-spacing: -1px;
-}
-
-.contact-form-wrapper {
-    padding: 1.5rem;
-}
-
-.contact-form-header h3 {
-    font-size: 1.35rem;
-}
-
-/* FOOTER RESPONSIVE */
-
-.site-footer {
-    padding: 4rem 0 1.25rem;
-}
-
-.footer-main {
-    padding-bottom: 3rem;
-}
-
-.footer-brand p {
-    max-width: 100%;
-}
-
-.footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.footer-bottom-links {
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.back-to-top {
-    align-self: flex-end;
-}
-
-}
 
 /* =========================================
    PROGRAMS SECTION
@@ -886,7 +543,6 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 3rem;
-
     margin-bottom: 4rem;
 }
 
@@ -895,7 +551,6 @@ body {
     line-height: 1;
     letter-spacing: -2px;
     font-weight: 800;
-
     margin: 0;
 }
 
@@ -906,9 +561,7 @@ body {
 
 .programs-header > p {
     max-width: 380px;
-
     margin: 0;
-
     color: var(--muted-text);
 }
 
@@ -919,14 +572,10 @@ body {
 
 .program-card {
     position: relative;
-
     height: 100%;
-
     background: var(--dark-color);
-
     border: 1px solid var(--border-color);
     border-radius: 1.25rem;
-
     overflow: hidden;
 
     transition:
@@ -946,18 +595,14 @@ body {
 
 .program-image {
     position: relative;
-
     height: 280px;
-
     overflow: hidden;
 }
 
 .program-image img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     transition: transform 0.5s ease;
 }
 
@@ -967,7 +612,6 @@ body {
 
 .program-image::after {
     content: "";
-
     position: absolute;
     inset: 0;
 
@@ -985,10 +629,8 @@ body {
 
 .program-label {
     position: absolute;
-
     left: 1.25rem;
     bottom: 1.25rem;
-
     z-index: 2;
 
     padding: 0.4rem 0.75rem;
@@ -997,7 +639,6 @@ body {
     color: #080a09;
 
     border-radius: 50px;
-
     font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 1px;
@@ -1015,15 +656,12 @@ body {
 .program-content h3 {
     font-size: 1.5rem;
     font-weight: 800;
-
     margin-bottom: 0.75rem;
 }
 
 .program-content > p {
     color: var(--muted-text);
-
     font-size: 0.95rem;
-
     margin-bottom: 1.5rem;
 }
 
@@ -1034,7 +672,6 @@ body {
 
 .program-features {
     list-style: none;
-
     padding: 0;
     margin: 0 0 2rem;
 }
@@ -1045,9 +682,7 @@ body {
     gap: 0.65rem;
 
     color: #d5d7d6;
-
     font-size: 0.9rem;
-
     margin-bottom: 0.65rem;
 }
 
@@ -1067,10 +702,8 @@ body {
     gap: 0.5rem;
 
     color: #ffffff;
-
     font-size: 0.85rem;
     font-weight: 700;
-
     text-decoration: none;
 
     transition:
@@ -1090,14 +723,13 @@ body {
 
 .featured-program {
     border-color: rgba(200, 255, 0, 0.45);
+    transform: translateY(-12px);
 }
 
 .popular-badge {
     position: absolute;
-
     top: 1rem;
     right: 1rem;
-
     z-index: 5;
 
     padding: 0.45rem 0.75rem;
@@ -1106,11 +738,11 @@ body {
     color: #080a09;
 
     border-radius: 50px;
-
     font-size: 0.65rem;
     font-weight: 800;
     letter-spacing: 1px;
 }
+
 
 /* =========================================
    RESULTS & TESTIMONIALS SECTION
@@ -1136,7 +768,6 @@ body {
     line-height: 1;
     letter-spacing: -2px;
     font-weight: 800;
-
     margin-bottom: 1.5rem;
 }
 
@@ -1148,7 +779,6 @@ body {
 .results-header p {
     max-width: 620px;
     margin: 0 auto;
-
     color: var(--muted-text);
 }
 
@@ -1163,7 +793,6 @@ body {
 
 .result-stat {
     text-align: center;
-
     padding: 2rem 1rem;
 
     border-top: 1px solid var(--border-color);
@@ -1172,19 +801,15 @@ body {
 
 .result-stat strong {
     display: block;
-
     color: var(--primary-color);
-
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 900;
     line-height: 1;
-
     margin-bottom: 0.65rem;
 }
 
 .result-stat span {
     color: var(--muted-text);
-
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -1198,11 +823,9 @@ body {
 
 .testimonial-card {
     height: 100%;
-
     padding: 2.25rem;
 
     background: rgba(255, 255, 255, 0.025);
-
     border: 1px solid var(--border-color);
     border-radius: 1.25rem;
 
@@ -1214,9 +837,7 @@ body {
 
 .testimonial-card:hover {
     transform: translateY(-6px);
-
     border-color: rgba(200, 255, 0, 0.35);
-
     background: rgba(255, 255, 255, 0.045);
 }
 
@@ -1227,10 +848,8 @@ body {
 
 .testimonial-rating {
     color: var(--primary-color);
-
     font-size: 0.9rem;
     letter-spacing: 3px;
-
     margin-bottom: 1.5rem;
 }
 
@@ -1241,9 +860,7 @@ body {
 
 .testimonial-card blockquote {
     margin: 0 0 2rem;
-
     color: #e5e7e6;
-
     font-size: 1.05rem;
     line-height: 1.7;
 }
@@ -1257,7 +874,6 @@ body {
     display: flex;
     align-items: center;
     gap: 0.9rem;
-
     margin-top: auto;
 }
 
@@ -1268,33 +884,26 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
 
     background: var(--primary-color);
     color: #080a09;
 
     border-radius: 50%;
-
     font-size: 0.75rem;
     font-weight: 900;
 }
 
 .testimonial-author strong {
     display: block;
-
     color: #ffffff;
-
     font-size: 0.9rem;
-
     margin-bottom: 0.15rem;
 }
 
 .testimonial-author span {
     display: block;
-
     color: var(--muted-text);
-
     font-size: 0.75rem;
 }
 
@@ -1313,8 +922,9 @@ body {
             rgba(255, 255, 255, 0.025)
         );
 
-         transform: translateY(-12px);
+    transform: translateY(-12px);
 }
+
 
 /* =========================================
    PRICING SECTION
@@ -1340,7 +950,6 @@ body {
     line-height: 1;
     letter-spacing: -2px;
     font-weight: 800;
-
     margin-bottom: 1.5rem;
 }
 
@@ -1351,9 +960,7 @@ body {
 
 .pricing-header p {
     max-width: 600px;
-
     margin: 0 auto;
-
     color: var(--muted-text);
 }
 
@@ -1374,7 +981,6 @@ body {
     padding: 2.5rem;
 
     background: var(--dark-color);
-
     border: 1px solid var(--border-color);
     border-radius: 1.25rem;
 
@@ -1387,7 +993,6 @@ body {
 
 .pricing-card:hover {
     transform: translateY(-8px);
-
     border-color: rgba(200, 255, 0, 0.35);
 }
 
@@ -1398,29 +1003,23 @@ body {
 
 .pricing-label {
     display: inline-block;
-
     color: var(--primary-color);
-
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 2px;
-
     margin-bottom: 1.5rem;
 }
 
 .pricing-card-header h3 {
     font-size: 1.6rem;
     font-weight: 800;
-
     margin-bottom: 0.75rem;
 }
 
 .pricing-card-header p {
     color: var(--muted-text);
-
     font-size: 0.9rem;
     line-height: 1.6;
-
     margin: 0;
 }
 
@@ -1433,21 +1032,18 @@ body {
     display: flex;
     align-items: baseline;
     gap: 0.4rem;
-
     margin: 2.5rem 0;
 }
 
 .pricing-price strong {
     font-size: 3.5rem;
     line-height: 1;
-
     font-weight: 900;
     letter-spacing: -2px;
 }
 
 .pricing-price span {
     color: var(--muted-text);
-
     font-size: 0.85rem;
 }
 
@@ -1462,7 +1058,6 @@ body {
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.2);
 
-    /* Keep the featured Pro card slightly raised */
     transform: translateY(-12px);
 }
 
@@ -1478,6 +1073,34 @@ body {
     border-color: var(--primary-color);
 }
 
+/* =========================================
+   FEATURED CARD REVEAL PROTECTION
+========================================= */
+
+.program-card.featured-program.reveal.show {
+    transform: translateY(-12px);
+}
+
+.testimonial-card.featured-testimonial.reveal.show {
+    transform: translateY(-12px);
+}
+
+.pricing-card.featured-pricing.reveal.show {
+    transform: translateY(-12px);
+}
+
+.program-card.featured-program.reveal.show:hover {
+    transform: translateY(-20px);
+}
+
+.testimonial-card.featured-testimonial.reveal.show:hover {
+    transform: translateY(-20px);
+}
+
+.pricing-card.featured-pricing.reveal.show:hover {
+    transform: translateY(-20px);
+}
+
 
 /* =========================================
    PRICING BUTTON
@@ -1490,7 +1113,6 @@ body {
     gap: 0.6rem;
 
     width: 100%;
-
     margin-top: auto;
     padding: 0.95rem 1.25rem;
 
@@ -1501,7 +1123,6 @@ body {
 
     font-size: 0.85rem;
     font-weight: 800;
-
     text-decoration: none;
 
     transition:
@@ -1512,9 +1133,7 @@ body {
 
 .pricing-button:hover {
     color: #080a09;
-
     background: var(--primary-color);
-
     border-color: var(--primary-color);
 }
 
@@ -1525,7 +1144,6 @@ body {
 
 .popular-pricing {
     position: absolute;
-
     top: 1.25rem;
     right: 1.25rem;
 
@@ -1535,7 +1153,6 @@ body {
     background: var(--primary-color);
 
     border-radius: 50px;
-
     font-size: 0.65rem;
     font-weight: 900;
     letter-spacing: 1px;
@@ -1548,13 +1165,15 @@ body {
 
 .pricing-note {
     margin: 2rem auto 0;
-
     color: var(--muted-text);
-
     text-align: center;
-
     font-size: 0.8rem;
 }
+
+
+/* =========================================
+   FEATURE CHECK
+========================================= */
 
 .feature-check {
     flex-shrink: 0;
@@ -1570,14 +1189,14 @@ body {
     background: var(--primary-color);
 
     border-radius: 50%;
-
     font-size: 0.7rem;
     font-weight: 900;
 }
 
 .feature-check::before {
-    content: "✓"
+    content: "✓";
 }
+
 
 /* =========================================
    FINAL CTA
@@ -1599,7 +1218,6 @@ body {
     padding: 5rem;
 
     border-radius: 1.5rem;
-
     overflow: hidden;
 
     background:
@@ -1621,7 +1239,6 @@ body {
 .final-cta-content {
     position: relative;
     z-index: 2;
-
     max-width: 700px;
 }
 
@@ -1630,7 +1247,6 @@ body {
     line-height: 0.95;
     letter-spacing: -2px;
     font-weight: 900;
-
     margin-bottom: 1.5rem;
 }
 
@@ -1641,12 +1257,9 @@ body {
 
 .final-cta p {
     max-width: 600px;
-
     color: #d5d7d6;
-
     font-size: 1.05rem;
     line-height: 1.7;
-
     margin-bottom: 2rem;
 }
 
@@ -1663,18 +1276,16 @@ body {
 
 .final-cta-secondary {
     color: #ffffff;
-
     font-size: 0.9rem;
     font-weight: 700;
-
     text-decoration: none;
-
     transition: color 0.3s ease;
 }
 
 .final-cta-secondary:hover {
     color: var(--primary-color);
 }
+
 
 /* =========================================
    CONTACT SECTION
@@ -1699,7 +1310,6 @@ body {
     line-height: 1;
     letter-spacing: -2px;
     font-weight: 800;
-
     margin-bottom: 1.5rem;
 }
 
@@ -1710,10 +1320,8 @@ body {
 
 .contact-intro {
     color: var(--muted-text);
-
     font-size: 1rem;
     line-height: 1.7;
-
     margin-bottom: 2.5rem;
 }
 
@@ -1748,27 +1356,21 @@ body {
     background: var(--primary-color);
 
     border-radius: 50%;
-
     font-size: 0.8rem;
 }
 
 .contact-item span {
     display: block;
-
     color: var(--muted-text);
-
     font-size: 0.65rem;
     font-weight: 800;
     letter-spacing: 1px;
-
     margin-bottom: 0.2rem;
 }
 
 .contact-item strong {
     display: block;
-
     color: #ffffff;
-
     font-size: 0.9rem;
     font-weight: 600;
 }
@@ -1782,12 +1384,10 @@ body {
     scroll-margin-top: 100px;
 }
 
-
 .contact-form-wrapper {
     padding: 2.5rem;
 
     background: var(--dark-color);
-
     border: 1px solid var(--border-color);
     border-radius: 1.25rem;
 }
@@ -1798,7 +1398,6 @@ body {
 
 .contact-form-header > span {
     color: var(--primary-color);
-
     font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 1.5px;
@@ -1806,7 +1405,6 @@ body {
 
 .contact-form-header h3 {
     margin: 0.5rem 0 0;
-
     font-size: 1.6rem;
     font-weight: 800;
 }
@@ -1818,11 +1416,9 @@ body {
 
 .contact-form label {
     display: block;
-
     margin-bottom: 0.5rem;
 
     color: #d5d7d6;
-
     font-size: 0.8rem;
     font-weight: 700;
 }
@@ -1873,7 +1469,6 @@ body {
 .contact-form select:focus,
 .contact-form textarea:focus {
     border-color: var(--primary-color);
-
     background: rgba(200, 255, 0, 0.025);
 }
 
@@ -1896,7 +1491,6 @@ body {
     gap: 0.6rem;
 
     width: 100%;
-
     padding: 1rem 1.25rem;
 
     color: #080a09;
@@ -1921,7 +1515,6 @@ body {
     background: transparent;
 }
 
-
 .contact-form .field-error {
     border-color: #ff5c5c !important;
 }
@@ -1933,11 +1526,9 @@ body {
 
 .contact-form .form-error {
     display: block;
-
     margin-top: 0.45rem;
 
     color: #ff7777;
-
     font-size: 0.75rem;
     line-height: 1.4;
 }
@@ -1957,7 +1548,6 @@ body {
     padding: 5rem 0 1.5rem;
 
     background: #070908;
-
     border-top: 1px solid var(--border-color);
 }
 
@@ -1979,13 +1569,11 @@ body {
     display: inline-block;
 
     color: #ffffff;
-
     font-size: 1.5rem;
     font-weight: 900;
     letter-spacing: -1px;
 
     text-decoration: none;
-
     margin-bottom: 1.25rem;
 }
 
@@ -1997,7 +1585,6 @@ body {
     max-width: 400px;
 
     color: var(--muted-text);
-
     font-size: 0.85rem;
     line-height: 1.7;
 
@@ -2029,7 +1616,6 @@ body {
     border-radius: 50%;
 
     font-size: 0.75rem;
-
     text-decoration: none;
 
     transition:
@@ -2040,9 +1626,7 @@ body {
 
 .footer-socials a:hover {
     color: #080a09;
-
     background: var(--primary-color);
-
     border-color: var(--primary-color);
 }
 
@@ -2053,18 +1637,15 @@ body {
 
 .footer-column h3 {
     color: #ffffff;
-
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-
     margin-bottom: 1.5rem;
 }
 
 .footer-column ul {
     list-style: none;
-
     padding: 0;
     margin: 0;
 }
@@ -2075,11 +1656,8 @@ body {
 
 .footer-column li a {
     color: var(--muted-text);
-
     font-size: 0.85rem;
-
     text-decoration: none;
-
     transition: color 0.3s ease;
 }
 
@@ -2100,23 +1678,18 @@ body {
 
 .footer-contact-list i {
     flex-shrink: 0;
-
     width: 1rem;
 
     color: var(--primary-color);
-
     font-size: 0.75rem;
-
     text-align: center;
 }
 
 .footer-contact-list span,
 .footer-contact-list a {
     color: var(--muted-text);
-
     font-size: 0.8rem;
     line-height: 1.6;
-
     text-decoration: none;
 }
 
@@ -2133,8 +1706,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
 
+    gap: 1.5rem;
     padding-top: 1.5rem;
 
     border-top: 1px solid var(--border-color);
@@ -2142,9 +1715,7 @@ body {
 
 .footer-bottom p {
     margin: 0;
-
     color: #666b68;
-
     font-size: 0.7rem;
 }
 
@@ -2155,11 +1726,8 @@ body {
 
 .footer-bottom-links a {
     color: #666b68;
-
     font-size: 0.7rem;
-
     text-decoration: none;
-
     transition: color 0.3s ease;
 }
 
@@ -2173,91 +1741,82 @@ body {
 ========================================= */
 
 .back-to-top {
-    width: 2.3rem;
-    height: 2.3rem;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 45px;
+    height: 45px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
 
     color: #080a09;
     background: var(--primary-color);
-
+    border: none;
     border-radius: 50%;
 
-    font-size: 0.75rem;
-
+    font-size: 0.8rem;
     text-decoration: none;
 
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+
     transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
         transform 0.3s ease,
         background 0.3s ease;
+
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .back-to-top:hover {
     color: #080a09;
-
     background: #ffffff;
-
     transform: translateY(-3px);
+}
+
+.back-to-top:focus,
+.back-to-top:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
 }
 
 
 /* =========================================
-   SCROLL REVEAL ANIMATION
+   SCROLL REVEAL
 ========================================= */
 
 .reveal {
     opacity: 0;
-    transition: opacity 0.7s ease-out;
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.7s ease-out,
+        transform 0.7s ease-out;
 }
 
 .reveal.show {
     opacity: 1;
+    transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-
     .reveal {
         opacity: 1;
         transform: none;
         transition: none;
     }
-
 }
-
-
-/* =========================================
-   PRICING CARD REVEAL
-========================================= */
-
-.pricing-card.reveal {
-    opacity: 0;
-    filter: blur(6px);
-
-    transition:
-        opacity 0.5s ease-out,
-        filter 0.5s ease-out;
-}
-
-.pricing-card.reveal.show {
-    opacity: 1;
-    filter: blur(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    .pricing-card.reveal {
-        opacity: 1;
-        filter: none;
-        transition: none;
-    }
-
-}
-
-
 
 /* =========================================
    ABOUT PAGE HERO
@@ -2303,9 +1862,7 @@ body {
 
 .about-page-hero p {
     max-width: 650px;
-
     color: var(--muted-text);
-
     font-size: 1.15rem;
     line-height: 1.7;
 }
@@ -2317,21 +1874,17 @@ body {
 
 .about-story-section {
     padding: 7rem 0;
-
     background: var(--dark-color);
 }
 
 .about-story-image {
     position: relative;
-
     overflow: hidden;
-
     border-radius: 1.5rem;
 }
 
 .about-story-image::after {
     content: "";
-
     position: absolute;
     inset: 0;
 
@@ -2347,7 +1900,6 @@ body {
 
 .about-story-image img {
     display: block;
-
     width: 100%;
     height: 600px;
 
@@ -2366,11 +1918,9 @@ body {
 
 .about-story-content h2 {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
-
     line-height: 1;
     letter-spacing: -2px;
     font-weight: 800;
-
     margin-bottom: 1.75rem;
 }
 
@@ -2381,10 +1931,8 @@ body {
 
 .about-story-content p {
     color: var(--muted-text);
-
     font-size: 1rem;
     line-height: 1.8;
-
     margin-bottom: 1rem;
 }
 
@@ -2395,23 +1943,19 @@ body {
 
 .about-philosophy-section {
     padding: 7rem 0;
-
     background: var(--dark-secondary);
 }
 
 .philosophy-header {
     max-width: 700px;
-
     margin: 0 auto 4rem;
 }
 
 .philosophy-header h2 {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
-
     line-height: 1;
     letter-spacing: -2px;
     font-weight: 800;
-
     margin-bottom: 1.5rem;
 }
 
@@ -2422,7 +1966,6 @@ body {
 
 .philosophy-header p {
     color: var(--muted-text);
-
     margin: 0;
 }
 
@@ -2433,13 +1976,10 @@ body {
 
 .philosophy-card {
     position: relative;
-
     height: 100%;
-
     padding: 2.5rem 2rem;
 
     background: rgba(255, 255, 255, 0.025);
-
     border: 1px solid var(--border-color);
     border-radius: 1.25rem;
 
@@ -2453,9 +1993,7 @@ body {
 
 .philosophy-card::before {
     content: "";
-
     position: absolute;
-
     top: 0;
     left: 0;
 
@@ -2472,9 +2010,7 @@ body {
 
 .philosophy-card:hover {
     transform: translateY(-8px);
-
     border-color: rgba(200, 255, 0, 0.4);
-
     background: rgba(255, 255, 255, 0.045);
 }
 
@@ -2498,7 +2034,6 @@ body {
     margin-bottom: 1.5rem;
 
     color: var(--primary-color);
-
     background: rgba(200, 255, 0, 0.08);
 
     border-radius: 0.9rem;
@@ -2510,10 +2045,8 @@ body {
     display: block;
 
     color: rgba(255, 255, 255, 0.25);
-
     font-size: 0.75rem;
     font-weight: 800;
-
     letter-spacing: 1px;
 
     margin-bottom: 0.75rem;
@@ -2522,16 +2055,13 @@ body {
 .philosophy-card h3 {
     font-size: 1.4rem;
     font-weight: 800;
-
     margin-bottom: 0.8rem;
 }
 
 .philosophy-card p {
     color: var(--muted-text);
-
     font-size: 0.9rem;
     line-height: 1.7;
-
     margin: 0;
 }
 
@@ -2541,8 +2071,7 @@ body {
 ========================================= */
 
 .about-page-cta {
-    padding: 5rem 0;
-
+    padding: 5rem 0 2rem;
     background: var(--dark-color);
 }
 
@@ -2559,7 +2088,6 @@ body {
     padding: 5rem;
 
     border-radius: 1.5rem;
-
     overflow: hidden;
 
     background:
@@ -2577,7 +2105,6 @@ body {
     max-width: 750px;
 
     font-size: clamp(2.8rem, 6vw, 5rem);
-
     line-height: 0.95;
     letter-spacing: -3px;
     font-weight: 900;
@@ -2592,18 +2119,182 @@ body {
 
 .about-page-cta-inner p {
     color: #d5d7d6;
-
     font-size: 1rem;
-
     margin-bottom: 2rem;
 }
 
 
 /* =========================================
-   ABOUT PAGE RESPONSIVE
+   WHY NOVAFIT SECTION
+========================================= */
+
+.why-novafit-section {
+    padding: 7rem 0;
+    background: var(--dark-secondary);
+}
+
+
+/* =========================================
+   WHY NOVAFIT HEADER
+========================================= */
+
+.why-novafit-header {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.why-novafit-header h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -2px;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.why-novafit-header h2 span {
+    display: block;
+    color: var(--primary-color);
+}
+
+.why-novafit-header p {
+    max-width: 600px;
+    margin: 0 auto;
+
+    color: var(--muted-text);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   WHY CARD
+========================================= */
+
+.why-card {
+    height: 100%;
+    padding: 2.5rem 2rem;
+
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--border-color);
+    border-radius: 1.25rem;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(200, 255, 0, 0.4);
+    background: rgba(255, 255, 255, 0.045);
+}
+
+
+/* =========================================
+   WHY ICON
+========================================= */
+
+.why-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 1.5rem;
+
+    color: var(--primary-color);
+    background: rgba(200, 255, 0, 0.08);
+
+    border-radius: 0.9rem;
+
+    font-size: 1.2rem;
+}
+
+
+/* =========================================
+   WHY CARD CONTENT
+========================================= */
+
+.why-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.why-card p {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
 ========================================= */
 
 @media (max-width: 991px) {
+
+    /* NAVIGATION */
+
+    .navbar-collapse {
+        padding-top: 1rem;
+    }
+
+    .nav-link {
+        padding: 0.7rem 0;
+    }
+
+
+    /* HERO */
+
+    .hero-section {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(11, 13, 12, 0.95),
+                rgba(11, 13, 12, 0.8)
+            ),
+            url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=80")
+            center / cover no-repeat;
+    }
+
+
+    /* ABOUT */
+
+    .about-image-wrapper {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .about-content {
+        max-width: 700px;
+    }
+
+    .experience-card {
+        right: 20px;
+    }
+
+
+    /* PROGRAMS */
+
+    .programs-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .programs-header > p {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* ABOUT PAGE */
 
     .about-page-hero {
         min-height: 65vh;
@@ -2629,7 +2320,273 @@ body {
 }
 
 
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
 @media (max-width: 576px) {
+
+    /* NAVIGATION */
+
+    .navbar {
+        padding: 1rem 0;
+    }
+
+
+    /* HERO */
+
+    .hero-section h1 {
+        font-size: 3.2rem;
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-stats {
+        gap: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .stat strong {
+        font-size: 1.6rem;
+    }
+
+
+    /* SERVICES */
+
+    .services-section {
+        padding: 5rem 0;
+    }
+
+    .services-header {
+        margin-bottom: 3rem;
+    }
+
+    .services-header h2 {
+        letter-spacing: -1px;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+
+    /* ABOUT */
+
+    .about-section {
+        padding: 5rem 0;
+    }
+
+    .about-image {
+        height: 450px;
+    }
+
+    .experience-card {
+        right: 15px;
+        bottom: 20px;
+        padding: 1rem 1.2rem;
+    }
+
+    .experience-card strong {
+        font-size: 2rem;
+    }
+
+    .about-content h2 {
+        letter-spacing: -1px;
+    }
+
+    .about-intro {
+        font-size: 1rem !important;
+    }
+
+
+    /* PROGRAMS */
+
+    .programs-section {
+        padding: 5rem 0;
+    }
+
+    .programs-header {
+        margin-bottom: 3rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .programs-header h2 {
+        letter-spacing: -1px;
+    }
+
+    .program-image {
+        height: 240px;
+    }
+
+    .program-content {
+        padding: 1.5rem;
+    }
+
+
+    /* RESULTS & TESTIMONIALS */
+
+    .results-section {
+        padding: 5rem 0;
+    }
+
+    .results-header {
+        margin-bottom: 3rem;
+    }
+
+    .results-header h2 {
+        letter-spacing: -1px;
+    }
+
+    .results-stats {
+        margin-bottom: 3.5rem;
+    }
+
+    .result-stat {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+
+    /* PRICING */
+
+    .pricing-section {
+        padding: 5rem 0;
+    }
+
+    .pricing-header {
+        margin-bottom: 3rem;
+    }
+
+    .pricing-header h2 {
+        letter-spacing: -1px;
+    }
+
+    .pricing-card {
+        min-height: auto;
+        padding: 2rem 1.5rem;
+    }
+
+    .pricing-price {
+        margin: 2rem 0;
+    }
+
+    .pricing-price strong {
+        font-size: 3rem;
+    }
+
+    .popular-pricing {
+        top: 1rem;
+        right: 1rem;
+    }
+
+
+    /* FINAL CTA */
+
+    .final-cta-section {
+        padding: 3rem 0;
+    }
+
+    .final-cta {
+        min-height: 550px;
+
+        padding: 3rem 1.5rem;
+        align-items: flex-end;
+
+        background:
+            linear-gradient(
+                0deg,
+                rgba(8, 10, 9, 0.98) 10%,
+                rgba(8, 10, 9, 0.75) 65%,
+                rgba(8, 10, 9, 0.35) 100%
+            ),
+            url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=85")
+            center / cover no-repeat;
+    }
+
+    .final-cta h2 {
+        letter-spacing: -1px;
+    }
+
+    .final-cta p {
+        font-size: 0.95rem;
+    }
+
+    .final-cta-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+
+
+    /* CONTACT */
+
+    .contact-section {
+        padding: 5rem 0;
+    }
+
+    .contact-content {
+        max-width: 100%;
+    }
+
+    .contact-content h2 {
+        letter-spacing: -1px;
+    }
+
+    .contact-form-wrapper {
+        padding: 1.5rem;
+    }
+
+    .contact-form-header h3 {
+        font-size: 1.35rem;
+    }
+
+
+    /* FOOTER */
+
+    .site-footer {
+        padding: 4rem 0 1.25rem;
+    }
+
+    .footer-main {
+        padding-bottom: 3rem;
+    }
+
+    .footer-brand p {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .back-to-top {
+        align-self: flex-end;
+    }
+
+
+    /* ABOUT PAGE */
 
     .about-page-hero {
         min-height: 70vh;
@@ -2657,6 +2614,9 @@ body {
         letter-spacing: -1px;
     }
 
+
+    /* PHILOSOPHY */
+
     .about-philosophy-section {
         padding: 5rem 0;
     }
@@ -2668,6 +2628,9 @@ body {
     .philosophy-header h2 {
         letter-spacing: -1px;
     }
+
+
+    /* ABOUT PAGE CTA */
 
     .about-page-cta {
         padding: 3rem 0 1.5rem;
@@ -2695,130 +2658,8 @@ body {
         letter-spacing: -1px;
     }
 
-}
 
-/* =========================================
-   WHY NOVAFIT SECTION
-========================================= */
-
-.why-novafit-section {
-    padding: 7rem 0;
-    background: var(--dark-secondary);
-}
-
-
-/* =========================================
-   WHY NOVAFIT HEADER
-========================================= */
-
-.why-novafit-header {
-    max-width: 700px;
-    margin: 0 auto 4rem;
-}
-
-.why-novafit-header h2 {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    line-height: 1;
-    letter-spacing: -2px;
-    font-weight: 800;
-
-    margin-bottom: 1.5rem;
-}
-
-.why-novafit-header h2 span {
-    display: block;
-    color: var(--primary-color);
-}
-
-.why-novafit-header p {
-    max-width: 600px;
-    margin: 0 auto;
-
-    color: var(--muted-text);
-    font-size: 1rem;
-    line-height: 1.7;
-}
-
-
-/* =========================================
-   WHY CARD
-========================================= */
-
-.why-card {
-    height: 100%;
-
-    padding: 2.5rem 2rem;
-
-    background: rgba(255, 255, 255, 0.025);
-
-    border: 1px solid var(--border-color);
-    border-radius: 1.25rem;
-
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        background 0.35s ease;
-}
-
-.why-card:hover {
-    transform: translateY(-8px);
-
-    border-color: rgba(200, 255, 0, 0.4);
-
-    background: rgba(255, 255, 255, 0.045);
-}
-
-
-/* =========================================
-   WHY ICON
-========================================= */
-
-.why-icon {
-    width: 3.5rem;
-    height: 3.5rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 1.5rem;
-
-    color: var(--primary-color);
-
-    background: rgba(200, 255, 0, 0.08);
-
-    border-radius: 0.9rem;
-
-    font-size: 1.2rem;
-}
-
-
-/* =========================================
-   WHY CARD CONTENT
-========================================= */
-
-.why-card h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-
-    margin-bottom: 1rem;
-}
-
-.why-card p {
-    color: var(--muted-text);
-
-    font-size: 0.95rem;
-    line-height: 1.7;
-
-    margin: 0;
-}
-
-
-/* =========================================
-   WHY NOVAFIT RESPONSIVE
-========================================= */
-
-@media (max-width: 576px) {
+    /* WHY NOVAFIT */
 
     .why-novafit-section {
         padding: 5rem 0;
@@ -2836,44 +2677,27 @@ body {
         padding: 2rem 1.5rem;
     }
 
+    /* FEATURED CARDS */
+
+.program-card.featured-program.reveal.show,
+.testimonial-card.featured-testimonial.reveal.show,
+.pricing-card.featured-pricing.reveal.show {
+    transform: none;
 }
 
-/* =========================================
-   ABOUT CTA → FOOTER SPACING
-========================================= */
-
-.about-page-cta {
-    padding-bottom: 2rem;
+.program-card.featured-program.reveal.show:hover,
+.testimonial-card.featured-testimonial.reveal.show:hover,
+.pricing-card.featured-pricing.reveal.show:hover {
+    transform: translateY(-6px);
 }
 
-/* TEMPORARY TEST */
-.why-novafit-section .why-card {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: relative !important;
+/* BACK TO TOP */
+
+.back-to-top {
+    right: 18px;
+    bottom: 18px;
+    width: 42px;
+    height: 42px;
+}
 }
 
-/* =========================================
-   NOVAFIT FORM VALIDATION
-========================================= */
-
-.contact-form .field-error {
-    border-color: #ff5c5c !important;
-    box-shadow: 0 0 0 1px rgba(255, 92, 92, 0.15);
-}
-
-.contact-form .field-error:focus {
-    border-color: #ff5c5c !important;
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(255, 92, 92, 0.08);
-}
-
-.contact-form .form-error {
-    display: block;
-    margin-top: 0.45rem;
-
-    color: #ff7777;
-    font-size: 0.75rem;
-    line-height: 1.4;
-}

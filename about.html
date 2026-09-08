@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="top">
 
     <!-- =========================================
          NAVIGATION
@@ -45,7 +45,7 @@
                 class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar"
+                data-bs-target="#mainNav"
                 aria-controls="mainNavbar"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
@@ -53,7 +53,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="mainNavbar">
+            <div class="collapse navbar-collapse" id="mainNav">
 
                 <ul class="navbar-nav ms-auto align-items-lg-center">
 
@@ -62,7 +62,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="about.html">
+                        <a class="nav-link active" aria-current="page" href="about.html">
                             About
                         </a>
                     </li>
@@ -584,19 +584,19 @@
                         <ul>
 
                             <li>
-                                <a href="index.html#programs">
+                                <a href="programs.html#strength">
                                     Strength
                                 </a>
                             </li>
 
                             <li>
-                                <a href="index.html#programs">
+                                <a href="programs.html#fat-loss">
                                     Fat Loss
                                 </a>
                             </li>
 
                             <li>
-                                <a href="index.html#programs">
+                                <a href="programs.html#performance">
                                     Performance
                                 </a>
                             </li>
@@ -627,33 +627,25 @@
                         <ul class="footer-contact-list">
 
                             <li>
-
                                 <i class="fa-solid fa-location-dot"></i>
-
                                 <span>
+                                    24 Fitness Avenue,<br>
                                     Lagos, Nigeria
                                 </span>
-
                             </li>
 
                             <li>
+                                <i class="fa-solid fa-envelope"></i>
+                                <a href="mailto:hello@novafit.example">
+                                    hello@novafit.example
+                                </a>
+                            </li>
 
+                            <li>
                                 <i class="fa-solid fa-phone"></i>
-
                                 <a href="tel:+2348000000000">
                                     +234 800 000 0000
                                 </a>
-
-                            </li>
-
-                            <li>
-
-                                <i class="fa-solid fa-envelope"></i>
-
-                                <a href="mailto:hello@novafit.com">
-                                    hello@novafit.com
-                                </a>
-
                             </li>
 
                         </ul>
@@ -677,18 +669,18 @@
 
             <div class="footer-bottom-links">
 
-                <a href="#" aria-label="Privacy Policy">
+                <a href="privacy.html" aria-label="Privacy Policy">
                     Privacy Policy
                 </a>
 
-                <a href="#" aria-label="Terms Of Service">
+                <a href="terms.html" aria-label="Terms Of Service">
                     Terms of Service
                 </a>
 
             </div>
 
             <a
-                href="#"
+                href="#top"
                 class="back-to-top"
                 aria-label="Back to top"
             >
@@ -705,6 +697,9 @@
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     ></script>
+
+    <!--Custom  Javascript -->
+    <script src="main.js"></script>
 
 </body>
 
