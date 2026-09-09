@@ -301,61 +301,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // =========================================
-    // CLOSE MOBILE NAVIGATION
-    // =========================================
+// CLOSE MOBILE NAVIGATION
+// =========================================
 
-    const navMenu =
-        document.querySelector("#mainNav");
+const navMenu =
+    document.querySelector("#mainNav");
 
-    const navLinks =
-        document.querySelectorAll(
-            "#mainNav .nav-link, #mainNav .btn"
-        );
-
-
-    if (navMenu && navLinks.length) {
-
-        navLinks.forEach((link) => {
-
-            link.addEventListener(
-                "click",
-                () => {
-
-                    if (
-                        navMenu.classList.contains("show") &&
-                        typeof bootstrap !== "undefined"
-                    ) {
-
-                        const collapse =
-                            bootstrap.Collapse.getInstance(
-                                navMenu
-                            );
+const navLinks =
+    document.querySelectorAll(
+        "#mainNav .nav-link, #mainNav .btn"
+    );
 
 
-                        if (collapse) {
+if (navMenu && navLinks.length) {
 
-                            collapse.hide();
+    navLinks.forEach((link) => {
 
-                        } else {
+        link.addEventListener(
+            "click",
+            () => {
 
-                            const newCollapse =
-                                new bootstrap.Collapse(
-                                    navMenu,
-                                    {
-                                        toggle: false
-                                    }
-                                );
+                if (
+                    navMenu.classList.contains("show") &&
+                    typeof bootstrap !== "undefined"
+                ) {
 
-                            newCollapse.hide();
-                        }
+                    const collapse =
+                        bootstrap.Collapse.getInstance(
+                            navMenu
+                        );
+
+                    if (collapse) {
+
+                        collapse.hide();
+
                     }
 
                 }
-            );
 
-        });
+            }
+        );
 
-    }
+    });
+
+
+    // -----------------------------------------
+    // CLOSE MENU WHEN CLICKING OUTSIDE
+    // -----------------------------------------
+
+    document.addEventListener(
+        "click",
+        (event) => {
+
+            if (!navMenu.classList.contains("show")) {
+                return;
+            }
+
+            const navbar =
+                document.querySelector(".navbar");
+
+            if (
+                navbar &&
+                !navbar.contains(event.target)
+            ) {
+
+                const collapse =
+                    bootstrap.Collapse.getInstance(
+                        navMenu
+                    );
+
+                if (collapse) {
+                    collapse.hide();
+                }
+
+            }
+
+        }
+    );
+
+}
 
 
     // =========================================
